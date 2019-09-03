@@ -1,0 +1,73 @@
+﻿<Window x:Class="GymManager.Views.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GymManager.Views"
+        mc:Ignorable="d" FontSize="18" WindowStartupLocation="CenterScreen"
+        Title="ShellView" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <!-- Row 1-->
+        <TextBlock Text="FirstName" Grid.Row="1" Grid.Column="1"/>
+        <TextBlock Text="LastName" Grid.Row="1" Grid.Column="2"/>
+        <TextBlock Text="DateFrom" Grid.Row="1" Grid.Column="3"/>
+        <TextBlock Text="DateTo" Grid.Row="1" Grid.Column="4"/>
+        <!-- Row 2-->
+        <TextBox x:Name="FirstName" Grid.Row="2" Grid.Column="1" MinWidth="100"/>
+        <TextBox x:Name="LastName" Grid.Row="2" Grid.Column="2" MinWidth="100"/>
+        <DatePicker x:Name="DateFrom" Grid.Row="2" Grid.Column="3" MinWidth="100"/>
+        <DatePicker x:Name="DateTo" Grid.Row="2" Grid.Column="4" MinWidth="100"/>
+        <Button x:Name="SearchEmployers" Grid.Row="2" Grid.Column="5" Width="100" Content="Search"/>
+        <!-- Row 4-->
+        <TextBlock Text="Employer:" Grid.Row="4" Grid.Column="1"/>
+        <ComboBox x:Name="Employers" Grid.Row="4" Grid.Column="2" SelectedItem="{Binding SelectedEmployer}">
+            <ComboBox.ItemTemplate>
+            <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{Binding ProfileImagePath}" Width="32" HorizontalAlignment="Left"/>
+                        <TextBlock Text="{Binding FullName}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Button x:Name="GetEmployerInfo" Grid.Row="4" Grid.Column="3" Width="100" Content="Load Info"/>
+        <!-- Row 6 -->
+        <TextBlock Text="Address:" Grid.Row="6" Grid.Column="1"/>
+        <TextBox   x:Name="EmployerInfo_Address" Grid.Row="6" Grid.Column="2"/>
+        <!-- Row 7 -->
+        <TextBlock Text="PhoneNumber:" Grid.Row="7" Grid.Column="1"/>
+        <TextBox   x:Name="EmployerInfo_PhoneNumber" Grid.Row="7" Grid.Column="2"/>
+        <!-- Row 8 -->
+        <TextBlock Text="Email:" Grid.Row="8" Grid.Column="1"/>
+        <TextBox   x:Name="EmployerInfo_Email" Grid.Row="8" Grid.Column="2"/>
+        <!-- Row 9 -->
+        <TextBlock Text="TaxCode:" Grid.Row="9" Grid.Column="1"/>
+        <TextBox   x:Name="EmployerInfo_TaxCode" Grid.Row="9" Grid.Column="2" IsEnabled="False"/>
+        <!-- Row 10 -->
+        <Button x:Name="UpdateInfo" Grid.Row="10" Grid.Column="3" Width="100" Content="Update Info"/>
+    </Grid>
+</Window>
